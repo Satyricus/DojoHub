@@ -1,0 +1,16 @@
+{
+  "id": "8d0d7518-9718-4c64-8f92-429e845f108b",
+  "name": "Send template email to umbraco@knowit.no",
+  "form": "5bd66006-8618-488e-af1f-a52872f16518",
+  "active": true,
+  "workflowTypeId": "17c61629-d984-4e86-b43b-a8407b3efea9",
+  "executesOn": "Submitted",
+  "settings": {
+    "Email": "{email}",
+    "SenderEmail": "umbraco@knowit.no",
+    "Subject": "The Form '{form_name}' was submitted",
+    "RazorViewFilePath": "Forms/Emails/Example-Template.cshtml",
+    "Attachment": ""
+  },
+  "sortOrder": 1
+}

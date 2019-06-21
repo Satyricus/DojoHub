@@ -590,7 +590,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\MemberHelper.cs" />
-    <Compile Include="Interfaces\IMemberHelper.cs" />
     <Compile Include="Models\Generated\Blog.generated.cs" />
     <Compile Include="Models\Generated\Blogpost.generated.cs" />
     <Compile Include="Models\Generated\Contact.generated.cs" />

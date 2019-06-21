@@ -1,12 +1,11 @@
 using System;
-using DojoHub.Web.Interfaces;
 using DojoHub.Web.Models;
 using Umbraco.Core.Models;
 using Umbraco.Core.Services;
 
 namespace DojoHub.Web.Helpers
 {
-    public class MemberHelper : IMemberHelper
+    public class MemberHelper
     {
         private readonly IMemberService _memberService;
 
@@ -15,11 +14,10 @@ namespace DojoHub.Web.Helpers
             _memberService = memberService;
         }
         
-        public bool Create(MemberCreationModel member)
+        public void Create(MemberCreationModel member)
         {
             // CreateWithIdentity(string username, string email, string password, string memberTypeAlias);
             _memberService.CreateMemberWithIdentity(member.Username, member.Email, member.DisplayName, member.MemberTypeAlias);
-            return true;
         }
 
         public Member Find()

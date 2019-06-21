@@ -1,13 +1,13 @@
 {
-  "name": "Contact Form",
-  "created": "2019-06-14T13:50:21.0487206+02:00",
+  "name": "Member Creation Form",
+  "created": "2019-06-21T14:28:22.3270863+02:00",
   "pages": [
     {
       "fieldSets": [
         {
           "caption": null,
           "sortOrder": 0,
-          "id": "2c2a56bd-0bd0-4323-ac09-992f02dbb9d5",
+          "id": "ea534b4b-f705-4f47-b926-1a0b6af249ed",
           "page": "00000000-0000-0000-0000-000000000000",
           "containers": [
             {
@@ -15,19 +15,19 @@
               "width": 12,
               "fields": [
                 {
-                  "caption": "Name",
+                  "caption": "Username",
                   "tooltip": null,
                   "placeholder": null,
                   "cssClass": null,
-                  "alias": "name",
-                  "id": "2d86134a-ca01-4da7-c720-bf48fce8b79e",
+                  "alias": "username",
+                  "id": "afaaf147-3984-4991-fe01-913b0045fa0e",
                   "fieldTypeId": "3f92e01b-29e2-4a30-bf33-9df5580ed52c",
                   "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
                   "dataSourceFieldKey": null,
                   "containsSensitiveData": false,
                   "mandatory": true,
                   "regex": null,
-                  "requiredErrorMessage": "Please leave your name",
+                  "requiredErrorMessage": "Username is mandatory",
                   "invalidErrorMessage": null,
                   "condition": {
                     "id": "00000000-0000-0000-0000-000000000000",
@@ -37,8 +37,8 @@
                     "rules": []
                   },
                   "settings": {
-                    "DefaultValue": "",
-                    "Placeholder": ""
+                    "Placeholder": "Username",
+                    "DefaultValue": ""
                   },
                   "preValues": []
                 },
@@ -48,42 +48,14 @@
                   "placeholder": null,
                   "cssClass": null,
                   "alias": "email",
-                  "id": "eae61cf1-01da-4da6-f9c6-df56b0aba741",
+                  "id": "346f894d-f1c4-4a1b-bf36-13d124bcba71",
                   "fieldTypeId": "3f92e01b-29e2-4a30-bf33-9df5580ed52c",
                   "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
                   "dataSourceFieldKey": null,
-                  "containsSensitiveData": false,
+                  "containsSensitiveData": true,
                   "mandatory": true,
                   "regex": "[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+",
-                  "requiredErrorMessage": "Please enter your e-mail",
-                  "invalidErrorMessage": "Please enter a valid e-mail",
-                  "condition": {
-                    "id": "00000000-0000-0000-0000-000000000000",
-                    "enabled": false,
-                    "actionType": "Show",
-                    "logicType": "All",
-                    "rules": []
-                  },
-                  "settings": {
-                    "DefaultValue": "",
-                    "Placeholder": ""
-                  },
-                  "preValues": []
-                },
-                {
-                  "caption": "Phone Number",
-                  "tooltip": null,
-                  "placeholder": null,
-                  "cssClass": null,
-                  "alias": "phoneNumber",
-                  "id": "21550c3d-769d-4700-8db0-f30cd95e0a95",
-                  "fieldTypeId": "3f92e01b-29e2-4a30-bf33-9df5580ed52c",
-                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
-                  "dataSourceFieldKey": null,
-                  "containsSensitiveData": false,
-                  "mandatory": true,
-                  "regex": null,
-                  "requiredErrorMessage": "Please enter a phone number",
+                  "requiredErrorMessage": "Email is mandatory",
                   "invalidErrorMessage": null,
                   "condition": {
                     "id": "00000000-0000-0000-0000-000000000000",
@@ -93,25 +65,25 @@
                     "rules": []
                   },
                   "settings": {
-                    "DefaultValue": "",
-                    "Placeholder": ""
+                    "Placeholder": "Email",
+                    "DefaultValue": ""
                   },
                   "preValues": []
                 },
                 {
-                  "caption": "Message",
+                  "caption": "Password",
                   "tooltip": null,
                   "placeholder": null,
                   "cssClass": null,
-                  "alias": "message",
-                  "id": "ec9abce4-e339-45a3-f143-6ba81f5b8c1d",
-                  "fieldTypeId": "023f09ac-1445-4bcb-b8fa-ab49f33bd046",
+                  "alias": "password",
+                  "id": "8995326f-3449-42e3-9210-24a55581a3b8",
+                  "fieldTypeId": "fb37bc60-d41e-11de-aeae-37c155d89593",
                   "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
                   "dataSourceFieldKey": null,
-                  "containsSensitiveData": false,
+                  "containsSensitiveData": true,
                   "mandatory": true,
                   "regex": null,
-                  "requiredErrorMessage": "Please enter a message",
+                  "requiredErrorMessage": "Password is mandatory",
                   "invalidErrorMessage": null,
                   "condition": {
                     "id": "00000000-0000-0000-0000-000000000000",
@@ -121,7 +93,33 @@
                     "rules": []
                   },
                   "settings": {
-                    "DefaultValue": "",
+                    "Placeholder": ""
+                  },
+                  "preValues": []
+                },
+                {
+                  "caption": "Reenter Password",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "reenterPassword",
+                  "id": "8bef0081-ad69-4c72-f5fa-f08e631ecb3e",
+                  "fieldTypeId": "fb37bc60-d41e-11de-aeae-37c155d89593",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "containsSensitiveData": true,
+                  "mandatory": true,
+                  "regex": null,
+                  "requiredErrorMessage": "Renter Password is mandatory",
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {
                     "Placeholder": ""
                   },
                   "preValues": []
@@ -129,7 +127,13 @@
               ]
             }
           ],
-          "condition": null
+          "condition": {
+            "id": "ea534b4b-f705-4f47-b926-1a0b6af249ed",
+            "enabled": false,
+            "actionType": "Show",
+            "logicType": "All",
+            "rules": []
+          }
         }
       ],
       "caption": null,
@@ -138,7 +142,7 @@
       "form": "00000000-0000-0000-0000-000000000000"
     }
   ],
-  "id": "adf160f1-39f5-44c0-b01d-9e2da32bf093",
+  "id": "5bd66006-8618-488e-af1f-a52872f16518",
   "fieldIndicationType": "MarkMandatoryFields",
   "indicator": "*",
   "showValidationSummary": false,
@@ -153,9 +157,12 @@
   "cssClass": null,
   "disableDefaultStylesheet": false,
   "useClientDependency": false,
-  "workflows": [],
+  "workflows": [
+    "542b8396-50d6-4dcd-8273-0963253165b2",
+    "8d0d7518-9718-4c64-8f92-429e845f108b"
+  ],
   "datasource": null,
-  "submitLabel": "Send Message",
+  "submitLabel": "Submit",
   "nextLabel": "Next",
   "prevLabel": "Previous"
 }

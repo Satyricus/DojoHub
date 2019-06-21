@@ -9,7 +9,9 @@ using Umbraco.Web.Composing;
 
 namespace DojoHub.Web.WorkFlows
 {
-    // https://our.umbraco.com/documentation/Add-ons/UmbracoForms/Developer/Extending/Adding-a-Workflowtype
+    /// <summary>
+    /// Create a member in Umbraco using the workflow attached to the form
+    /// </summary>
     public class MemberCreationWorkFlow : WorkflowType
     {
         public MemberCreationWorkFlow()
@@ -22,18 +24,28 @@ namespace DojoHub.Web.WorkFlows
 
         public override WorkflowExecutionStatus Execute(Record record, RecordEventArgs e)
         {
+            // TODO: Check password matching and other sanitation and validation
+
             var member = new MemberCreationModel
             {
-                Username = "Test2",
-                DisplayName = "DisplayName2",
-                Email = "a@a.no",
+                Username = record.GetValue<string>("username"),
+                DisplayName = record.GetValue<string>("username"),
+                Email = record.GetValue<string>("email"),
+                Password = record.GetValue<string>("password"),
                 MemberTypeAlias = "Member"
             };
-            // DO STUFF
-            var memberHelper = new MemberHelper(Current.Services.MemberService);
-            memberHelper.Create(member);
-            // record values = record.RecordFields.Values
-            throw new NotImplementedException();
+
+            try
+            {
+                var memberHelper = new MemberHelper(Current.Services.MemberService);
+                memberHelper.Create(member);
+            }
+            catch (Exception)
+            {
+                return WorkflowExecutionStatus.Failed;
+            }
+
+            return WorkflowExecutionStatus.Completed;
         }
 
         public override List<Exception> ValidateSettings()

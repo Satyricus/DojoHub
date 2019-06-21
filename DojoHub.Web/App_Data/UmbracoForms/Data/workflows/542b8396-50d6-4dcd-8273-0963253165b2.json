@@ -1,0 +1,10 @@
+{
+  "id": "542b8396-50d6-4dcd-8273-0963253165b2",
+  "name": "Member creation",
+  "form": "5bd66006-8618-488e-af1f-a52872f16518",
+  "active": true,
+  "workflowTypeId": "a713f108-d864-4397-abcc-b6f55a7a7106",
+  "executesOn": "Submitted",
+  "settings": {},
+  "sortOrder": 0
+}
