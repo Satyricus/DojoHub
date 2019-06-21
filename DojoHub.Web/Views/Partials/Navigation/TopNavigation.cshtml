@@ -1,0 +1,24 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Umbraco.Web;
+@{ 
+    var site = Model.Root();
+    var settings = ViewData["settings"] as WebsiteSettings ?? new WebsiteSettings(Model);
+    var selection = site.Children.Where(x => x.IsVisible());
+    var background = settings.TopNavigationBackground;
+}
+<nav class="navbar" style="background-image: url('@background.Url')">
+    <div class="navbar__logo">
+        @if (settings.SiteLogo != null && !string.IsNullOrEmpty(settings.SiteLogo.Url))
+        {
+            <img class="navbar__logo-image" src="@settings.SiteLogo.Url" alt="@settings.SiteName">
+        }
+    </div>
+
+    <a class="navbar__link @Html.Raw(Model.Id == site.Id ? "navbar__link--active" : "")" href="/">@settings.SiteName</a>
+    <div class="navbar__links">
+        @foreach (var item in selection)
+        {
+            <a class="navbar__link @(item.IsAncestorOrSelf(Model) ? "navbar__link--active" : null)" href="@item.Url">@item.Name</a>
+        }
+    </div>
+</nav>

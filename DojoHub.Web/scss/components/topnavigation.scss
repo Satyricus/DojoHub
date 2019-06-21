@@ -1,0 +1,35 @@
+.navbar {
+    width: 100%;
+    color: #000000;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__logo {
+        margin: 15px;
+    }
+
+    &__logo-image {
+        max-width: 150px;
+    }
+
+    &__links {
+        margin: 0 25px;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__link {
+        margin: 0 15px;
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+    }
+
+    &__link:hover {
+        text-decoration: underline;
+    }
+}

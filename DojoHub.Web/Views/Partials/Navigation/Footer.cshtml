@@ -1,0 +1,25 @@
+@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+    var site = Model.Root();
+    var selection = site.Children.Where(x => x.IsVisible());
+    var settings = ViewData["settings"] as WebsiteSettings ?? new WebsiteSettings(Model);
+    var background = settings.FooterBackground;
+}
+
+<footer>
+    <div class="footer">
+        <div class="footer__content" style="background-image: url('@background.Url')">
+            <div class="footer__column">
+                <p>Knowit Experience</p>
+                <p>@settings.SiteName</p>
+                <p>@settings.Address</p>
+            </div>
+            <div class="footer__column">
+                @foreach (var item in selection)
+                {
+                    <a class="footer__link" href="@item.Url">@item.Name</a>
+                }
+            </div>
+        </div>
+    </div>
+</footer>

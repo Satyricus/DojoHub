@@ -1,0 +1,79 @@
+﻿@using DojoHub.Web.Settings
+@inherits UmbracoViewPage
+@{
+    Layout = null;
+    var settings = Umbraco.Content(1152) as WebsiteSettings ?? new WebsiteSettings(Model);
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>@Model.Name - @settings.SiteName</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    @* <link rel="stylesheet" href="@Url.Content("~/css/umbraco-starterkit-style.css")" /> *@
+
+    @if (Settings.UseWebpackDevServer)
+    {
+        <link href="@(Settings.WebpackDevServerRoot)/main.css" rel="stylesheet" />
+    }
+    else
+    {
+        <link href="/scripts/build/main.css" rel="stylesheet" />
+    }
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Acme|Indie+Flower&display=swap" rel="stylesheet">
+    @RenderSection("Header", required: false)
+</head>
+
+<body class="frontpage">
+
+    <header class="header">
+
+        @Html.Partial(
+            "~/views/partials/navigation/topNavigation.cshtml",
+            Model,
+            new ViewDataDictionary
+            {
+                {"settings", settings}
+            })
+
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    @Html.Partial(
+        "~/views/partials/navigation/footer.cshtml",
+        Model,
+        new ViewDataDictionary
+        {
+            {"settings", settings}
+        })
+
+    @if (Settings.UseWebpackDevServer)
+    {
+        <script src="@(Settings.WebpackDevServerRoot)/main.bundle.js"></script>
+        <script src="@(Settings.WebpackDevServerRoot)/vendor.bundle.js"></script>
+    }
+    else
+    {
+        <script src="/scripts/build/main.bundle.js"></script>
+        <script src="/scripts/build/vendor.bundle.js"></script>
+    }
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
+    <script src="@Url.Content("~/scripts/umbraco-starterkit-app.js")"></script>
+
+</body>
+
+</html>
